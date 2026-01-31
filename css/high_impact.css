@@ -299,6 +299,8 @@ footer {
 @media (min-width: 768px) {
     .services-grid-container {
         grid-template-columns: repeat(2, 1fr);
+        perspective: 1000px;
+        /* Enable 3D space */
     }
 }
 
@@ -314,12 +316,17 @@ footer {
     padding: 40px 30px;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: all 0.4s ease;
+    transition: transform 0.1s ease-out, box-shadow 0.4s ease;
+    /* Fast transform for mouse move */
     border-bottom: 4px solid var(--primary-blue);
     position: relative;
     overflow: hidden;
     z-index: 1;
+    transform-style: preserve-3d;
+    /* vital for 3d effect */
+    will-change: transform;
 }
+
 
 .service-card-modern::before {
     content: '';
@@ -454,7 +461,7 @@ footer {
 
 /* Reviews Section Modern */
 .reviews-section-modern {
-    background: linear-gradient(rgba(0, 33, 71, 0.85), rgba(0, 21, 46, 0.85)), url('../images/okokok.png');
+    background: linear-gradient(rgba(0, 33, 71, 0.85), rgba(0, 21, 46, 0.85)), url('../images/tireTracks.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -943,8 +950,8 @@ footer {
 
 /* Logos inside the bar */
 .tire-burnout-bar .logo-slider-track {
-    width: calc(350px * 10);
-    /* 5 logos x 2 sets = 10 */
+    width: calc(350px * 15);
+    /* 5 logos x 3 sets = 15 */
     animation: scroll 20s linear infinite;
 }
 
@@ -1007,4 +1014,19 @@ footer {
         width: 100%;
         margin-bottom: 20px;
     }
+}
+
+/* 3D Glare Element */
+.card-glare {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%);
+    opacity: 0;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    transition: opacity 0.4s ease;
+    transform: translateZ(1px);
 }
