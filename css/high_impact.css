@@ -1028,5 +1028,127 @@ footer {
     pointer-events: none;
     mix-blend-mode: overlay;
     transition: opacity 0.4s ease;
-    transform: translateZ(1px);
+}
+
+/* --- New Features: Rebate & Save Contact --- */
+.rebate-wrapper {
+    margin-bottom: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Top Bar Notification */
+.top-bar {
+    background-color: var(--accent-orange);
+    color: white;
+    padding: 10px 0;
+    font-weight: 600;
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 100;
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.top-bar-link {
+    color: white;
+    font-weight: 800;
+    text-decoration: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+    padding-left: 20px;
+}
+
+/* --- Rebate Card Updates --- */
+.rebate-card {
+    background: rgba(0, 40, 85, 0.05);
+    /* Very subtle blue tint */
+    border-left: 4px solid var(--accent-orange);
+    color: var(--text-dark);
+    padding: 20px 25px;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.rebate-card:hover {
+    background: rgba(0, 40, 85, 0.08);
+}
+
+.rebate-icon {
+    font-size: 2rem;
+    color: var(--accent-orange);
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+.rebate-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    color: var(--primary-blue);
+    font-family: var(--font-header);
+    text-transform: uppercase;
+    text-align: left;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.rebate-info p {
+    margin: 0;
+    color: #555;
+    font-size: 0.95rem;
+    text-align: left;
+    line-height: 1.4;
+}
+
+.rebate-terms {
+    font-size: 0.75rem !important;
+    color: #888 !important;
+    margin-top: 5px !important;
+    font-style: italic;
+}
+
+/* Save to Contact Button Style */
+.btn-save-contact {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-family: var(--font-header);
+    font-weight: 600;
+    padding: 15px 30px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-save-contact:hover {
+    background: white;
+    color: var(--primary-blue);
+    border-color: white;
+}
+
+@media (min-width: 768px) {
+    .cta-content-modern {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .btn-save-contact {
+        margin-top: 0;
+        /* Align with call button on desktop */
+    }
 }
