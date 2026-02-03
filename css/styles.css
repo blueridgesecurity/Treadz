@@ -717,6 +717,63 @@ footer {
     }
 }
 
+
+/* FAQ Accordion Styling - FIXED */
+.faq-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    /* Ensures content doesn't spill out when closed */
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    /* Pushes text left and icon right */
+    align-items: center;
+    width: 100%;
+}
+
+.faq-question h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--primary-blue);
+    flex-grow: 1;
+    /* Allows text to take up available space */
+    padding-right: 20px;
+    /* Space between text and icon */
+    text-align: left;
+}
+
+.faq-toggle-icon {
+    font-size: 1.2rem;
+    color: var(--accent-orange);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    /* Prevents icon from squishing */
+}
+
+.faq-item.active .faq-toggle-icon {
+    transform: rotate(180deg);
+}
+
+/* CSS handles the transition property, JS handles the value */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.6s ease-out, opacity 0.6s ease-out, margin-top 0.3s ease;
+    margin-top: 0;
+}
+
+.faq-item.active .faq-answer {
+    /* max-height is set by JS */
+    opacity: 1;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
 /* Mobile Responsive */
 @media (max-width: 992px) {
     .hero h1 {

@@ -109,6 +109,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    // --- FAQ Accordion Logic ---
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+
+        if (question && answer) {
+            question.addEventListener('click', (e) => {
+                // Prevent bubbling if necessary, though structure is simple
+                e.stopPropagation();
+
+                const isActive = item.classList.contains('active');
+
+                // Toggle active class
+                item.classList.toggle('active');
+
+                if (!isActive) {
+                    // Opening: Set max-height to scrollHeight
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    // Closing: Set max-height back to null (or 0 via css, but null allows css to take over)
+                    answer.style.maxHeight = null;
+                }
+            });
+        }
+    });
+
 });
 
 /**
